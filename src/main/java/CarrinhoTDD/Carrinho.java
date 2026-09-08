@@ -25,6 +25,12 @@ public class Carrinho {
         cupomAplicado = cupom;
     }
 
+    public void finalizarCompra() {
+        if (total == 0.0) {
+            throw new CarrinhoVazioException();
+        }
+    }
+
     public double calcularTotal() {
         return total;
     }

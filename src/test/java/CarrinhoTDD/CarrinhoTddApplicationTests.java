@@ -82,7 +82,7 @@ class CarrinhoTddApplicationTests {
 
 		assertThrows(
 				CarrinhoVazioException.class,
-				() -> carrinho.finalizarCompra()
+                carrinho::finalizarCompra
 		);
 	}
 

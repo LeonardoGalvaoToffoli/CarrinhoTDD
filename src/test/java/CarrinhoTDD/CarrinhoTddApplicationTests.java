@@ -22,7 +22,7 @@ class CarrinhoTddApplicationTests {
 	@Test
 	void adicionarItemAumentaTotalPeloPrecoVezesQuantidade() {
 		Carrinho carrinho = new Carrinho();
-		Produto produto = new Produto(50.0);
+		Produto produto = new Produto(50.0, 2);
 
 		carrinho.adicionarItem(produto, 2);
 

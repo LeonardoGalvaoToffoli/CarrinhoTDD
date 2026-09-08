@@ -4,6 +4,10 @@ public class Carrinho {
     private double total;
 
     public void adicionarItem(Produto produto, int quantidade) {
+        if (quantidade > produto.estoque()) {
+            throw new EstoqueInsuficienteException();
+        }
+
         total += produto.preco() * quantidade;
     }
 

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 class CarrinhoTddApplicationTests {
@@ -26,6 +27,17 @@ class CarrinhoTddApplicationTests {
 		carrinho.adicionarItem(produto, 2);
 
 		assertEquals(100.0, carrinho.calcularTotal());
+	}
+
+	@Test
+	void naoPodeAdicionarItemEmQuantidadeMaiorQueEstoque() {
+		Carrinho carrinho = new Carrinho();
+		Produto produto = new Produto(50.0, 2);
+
+		assertThrows(
+				EstoqueInsuficienteException.class,
+				() -> carrinho.adicionarItem(produto, 3)
+		);
 	}
 
 }

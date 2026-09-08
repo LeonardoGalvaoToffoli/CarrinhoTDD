@@ -21,7 +21,12 @@ public class Carrinho {
             throw new CupomJaAplicadoException();
         }
 
-        total -= total * cupom.percentual() / 100;
+        double totalComDesconto = total - total * cupom.percentual() / 100;
+        if (totalComDesconto < 0) {
+            throw new DescontoInvalidoException();
+        }
+
+        total = totalComDesconto;
         cupomAplicado = cupom;
     }
 

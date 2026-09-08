@@ -51,4 +51,16 @@ class CarrinhoTddApplicationTests {
 		assertEquals(0.0, carrinho.calcularTotal());
 	}
 
+	@Test
+	void aplicarCupomValidoReduzTotalPeloPercentual() {
+		Carrinho carrinho = new Carrinho();
+		Produto produto = new Produto(100.0, 1);
+		Cupom cupom = new Cupom(10.0);
+
+		carrinho.adicionarItem(produto, 1);
+		carrinho.aplicarCupom(cupom);
+
+		assertEquals(90.0, carrinho.calcularTotal());
+	}
+
 }

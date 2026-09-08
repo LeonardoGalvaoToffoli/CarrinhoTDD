@@ -86,4 +86,18 @@ class CarrinhoTddApplicationTests {
 		);
 	}
 
+	@Test
+	void naoPodeAplicarCupomQueDeixaTotalNegativo() {
+		Carrinho carrinho = new Carrinho();
+		Produto produto = new Produto(100.0, 1);
+		Cupom cupom = new Cupom(110.0);
+
+		carrinho.adicionarItem(produto, 1);
+
+		assertThrows(
+				DescontoInvalidoException.class,
+				() -> carrinho.aplicarCupom(cupom)
+		);
+	}
+
 }

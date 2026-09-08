@@ -76,4 +76,14 @@ class CarrinhoTddApplicationTests {
 		);
 	}
 
+	@Test
+	void finalizarCompraComCarrinhoVazioLancaExcecao() {
+		Carrinho carrinho = new Carrinho();
+
+		assertThrows(
+				CarrinhoVazioException.class,
+				() -> carrinho.finalizarCompra()
+		);
+	}
+
 }

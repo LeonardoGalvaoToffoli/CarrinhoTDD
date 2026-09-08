@@ -15,6 +15,10 @@ public class Carrinho {
         total -= produto.preco() * quantidade;
     }
 
+    public void aplicarCupom(Cupom cupom) {
+        total -= total * cupom.percentual() / 100;
+    }
+
     public double calcularTotal() {
         return total;
     }

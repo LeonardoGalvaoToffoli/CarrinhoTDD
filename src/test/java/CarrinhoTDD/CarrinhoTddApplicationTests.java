@@ -63,4 +63,17 @@ class CarrinhoTddApplicationTests {
 		assertEquals(90.0, carrinho.calcularTotal());
 	}
 
+	@Test
+	void naoPodeAplicarMesmoCupomDuasVezes() {
+		Carrinho carrinho = new Carrinho();
+		Cupom cupom = new Cupom(10.0);
+
+		carrinho.aplicarCupom(cupom);
+
+		assertThrows(
+				CupomJaAplicadoException.class,
+				() -> carrinho.aplicarCupom(cupom)
+		);
+	}
+
 }

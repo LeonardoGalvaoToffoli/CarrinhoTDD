@@ -18,4 +18,14 @@ class CarrinhoTddApplicationTests {
 
 	}
 
+	@Test
+	void adicionarItemAumentaTotalPeloPrecoVezesQuantidade() {
+		Carrinho carrinho = new Carrinho();
+		Produto produto = new Produto(50.0);
+
+		carrinho.adicionarItem(produto, 2);
+
+		assertEquals(100.0, carrinho.calcularTotal());
+	}
+
 }

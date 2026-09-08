@@ -40,4 +40,15 @@ class CarrinhoTddApplicationTests {
 		);
 	}
 
+	@Test
+	void removerItemReduzTotalPeloPrecoVezesQuantidade() {
+		Carrinho carrinho = new Carrinho();
+		Produto produto = new Produto(50.0, 2);
+
+		carrinho.adicionarItem(produto, 2);
+		carrinho.removerItem(produto, 2);
+
+		assertEquals(0.0, carrinho.calcularTotal());
+	}
+
 }

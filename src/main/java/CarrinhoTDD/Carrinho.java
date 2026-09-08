@@ -11,6 +11,10 @@ public class Carrinho {
         total += produto.preco() * quantidade;
     }
 
+    public void removerItem(Produto produto, int quantidade) {
+        total -= produto.preco() * quantidade;
+    }
+
     public double calcularTotal() {
         return total;
     }
